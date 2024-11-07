@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Bài Tập Mảng JS_Buoi 7-8</title>
+</head>
+<body class="bg-blue-50 flex items-center justify-center min-h-screen">
+    <div class="bg-white shadow-lg rounded-lg p-6 max-w-md w-full mx-auto">
+        <h2 class="text-xl font-bold text-center text-blue-700 mb-4">Bài Tập Mảng</h2>
+
+        <!-- Nhập số và hiển thị mảng -->
+        <div class="flex items-center mb-4">
+            <input id="nhapSo" type="number" placeholder="Nhập số n" class="shadow-inner rounded px-3 py-3 w-full outline-none">
+            <button id="nutThemSo" class="ml-2 px-3 bg-blue-500 text-white rounded">Thêm số</button>
+        </div>
+        <p id="hienThiMang" class="text-gray-700 mb-4 p-3 rounded border border-emerald-500 bg-[#D1E7DD]">👉</p>
+
+        
+        <div class="space-y-2">
+            <!-- Tổng số dương -->
+            <div class="accordion-item p-2 border rounded bg-gray-100">
+                <div class="accordion-header font-semibold text-blue-600 cursor-pointer">1. Tổng số dương</div>
+                <div class="accordion-content hidden">
+                    <button id="nutTinhTong" class="mt-2 px-4 py-1 bg-blue-500 text-white rounded">Tính tổng</button>
+                    <p id="ketQuaTong" class="text-green-600 mt-2"></p>
+                </div>
+            </div>
+
+            <!-- Đếm số dương -->
+            <div class="accordion-item p-2 border rounded bg-gray-100">
+                <div class="accordion-header font-semibold text-blue-600 cursor-pointer">2. Đếm số dương</div>
+                <div class="accordion-content hidden">
+                    <button id="nutDemSoDuong" class="mt-2 px-4 py-1 bg-blue-500 text-white rounded">Đếm</button>
+                    <p id="ketQuaDem" class="text-green-600 mt-2"></p>
+                </div>
+            </div>
+
+            <!-- Tìm số nhỏ nhất -->
+            <div class="accordion-item p-2 border rounded bg-gray-100">
+                <div class="accordion-header font-semibold text-blue-600 cursor-pointer">3. Tìm số nhỏ nhất</div>
+                <div class="accordion-content hidden">
+                    <button id="nutTimSoNhoNhat" class="mt-2 px-4 py-1 bg-blue-500 text-white rounded">Tìm</button>
+                    <p id="ketQuaSoNhoNhat" class="text-green-600 mt-2"></p>
+                </div>
+            </div>
+
+            <!-- Tìm số dương nhỏ nhất -->
+            <div class="accordion-item p-2 border rounded bg-gray-100">
+                <div class="accordion-header font-semibold text-blue-600 cursor-pointer">4. Tìm số dương nhỏ nhất</div>
+                <div class="accordion-content hidden">
+                    <button id="nutTimSoDuongNhoNhat" class="mt-2 px-4 py-1 bg-blue-500 text-white rounded">Tìm</button>
+                    <p id="ketQuaSoDuongNhoNhat" class="text-green-600 mt-2"></p>
+                </div>
+            </div>
+
+            <!-- Tìm số chẵn cuối cùng -->
+            <div class="accordion-item p-2 border rounded bg-gray-100">
+                <div class="accordion-header font-semibold text-blue-600 cursor-pointer">5. Tìm số chẵn cuối cùng</div>
+                <div class="accordion-content hidden">
+                    <button id="nutTimSoChanCuoi" class="mt-2 px-4 py-1 bg-blue-500 text-white rounded">Tìm</button>
+                    <p id="ketQuaSoChanCuoi" class="text-green-600 mt-2"></p>
+                </div>
+            </div>
+
+            <!-- Đổi chỗ -->
+            <div class="accordion-item p-2 border rounded bg-gray-100">
+                <div class="accordion-header font-semibold text-blue-600 cursor-pointer">6. Đổi chỗ</div>
+                <div class="accordion-content hidden">
+                    <input id="viTri1" type="number" placeholder="Vị trí 1" class="border border-gray-300 rounded px-2 py-1 w-full mb-2">
+                    <input id="viTri2" type="number" placeholder="Vị trí 2" class="border border-gray-300 rounded px-2 py-1 w-full mb-2">
+                    <button id="nutDoiCho" class="px-4 py-1 bg-blue-500 text-white rounded">Đổi chỗ</button>
+                    <p id="ketQuaDoiCho" class="text-green-600 mt-2"></p>
+                </div>
+            </div>
+
+            <!-- Sắp xếp tăng dần -->
+            <div class="accordion-item p-2 border rounded bg-gray-100">
+                <div class="accordion-header font-semibold text-blue-600 cursor-pointer">7. Sắp xếp tăng dần</div>
+                <div class="accordion-content hidden">
+                    <button id="nutSapXepTangDan" class="mt-2 px-4 py-1 bg-blue-500 text-white rounded">Sắp xếp</button>
+                    <p id="ketQuaSapXep" class="text-green-600 mt-2"></p>
+                </div>
+            </div>
+
+            <!-- Tìm số nguyên tố đầu tiên -->
+            <div class="accordion-item p-2 border rounded bg-gray-100">
+                <div class="accordion-header font-semibold text-blue-600 cursor-pointer">8. Tìm số nguyên tố đầu tiên</div>
+                <div class="accordion-content hidden">
+                    <button id="nutTimSoNguyenToDauTien" class="mt-2 px-4 py-1 bg-blue-500 text-white rounded">Tìm</button>
+                    <p id="ketQuaSoNguyenToDauTien" class="text-green-600 mt-2"></p>
+                </div>
+            </div>
+
+            <!-- Đếm số nguyên -->
+            <div class="accordion-item p-2 border rounded bg-gray-100">
+                <div class="accordion-header font-semibold text-blue-600 cursor-pointer">9. Đếm số nguyên</div>
+                <div class="accordion-content hidden">
+                    <button id="nutDemSoNguyen" class="mt-2 px-4 py-1 bg-blue-500 text-white rounded">Đếm</button>
+                    <p id="ketQuaDemSoNguyen" class="text-green-600 mt-2"></p>
+                </div>
+            </div>
+
+            <!-- So sánh số âm và dương -->
+            <div class="accordion-item p-2 border rounded bg-gray-100">
+                <div class="accordion-header font-semibold text-blue-600 cursor-pointer">10. So sánh số âm và dương</div>
+                <div class="accordion-content hidden">
+                    <button id="nutSoSanhAmDuong" class="mt-2 px-4 py-1 bg-blue-500 text-white rounded">So sánh</button>
+                    <p id="ketQuaSoSanhAmDuong" class="text-green-600 mt-2"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./index.js"></script>
+</body>
+</html>
