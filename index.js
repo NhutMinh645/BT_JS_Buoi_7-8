@@ -71,9 +71,10 @@ function timSoDuongNhoNhat() {
 }
 
 function timSoChanCuoi() {
-    const soChanCuoi = [...mangSo].reverse().find(so => so % 2 === 0) || "0";
+    const soChanCuoi = mangSo.slice().reverse().find(so => so % 2 === 0) ?? -1;
     document.getElementById("ketQuaSoChanCuoi").textContent = `👉Số chẵn cuối cùng: ${soChanCuoi}`;
 }
+
 
 function doiCho() {
     const viTri1 = parseInt(document.getElementById("viTri1").value);
@@ -81,7 +82,7 @@ function doiCho() {
     if (!isNaN(viTri1) && !isNaN(viTri2) && viTri1 < mangSo.length && viTri2 < mangSo.length) {
         [mangSo[viTri1], mangSo[viTri2]] = [mangSo[viTri2], mangSo[viTri1]];
         hienThiMang();
-        document.getElementById("ketQuaDoiCho").textContent = `👉Đã đổi chỗ phần tử tại vị trí ${viTri1} và ${viTri2}`;
+        document.getElementById("ketQuaDoiCho").textContent = `👉Mảng sau khi đổi: ${mangSo.join(", ")}`;
     } else {
         document.getElementById("ketQuaDoiCho").textContent = "👉Vị trí không hợp lệ";
     }
@@ -90,18 +91,22 @@ function doiCho() {
 function sapXepTangDan() {
     mangSo.sort((a, b) => a - b);
     hienThiMang();
-    document.getElementById("ketQuaSapXep").textContent = `👉Mảng sau khi sắp xếp tăng dần: [${mangSo.join(", ")}]`;
+    document.getElementById("ketQuaSapXep").textContent = `👉Mảng sau khi sắp xếp : ${mangSo.join(", ")}`;
 }
 
 function timSoNguyenToDauTien() {
-    const isPrime = (num) => {
-        if (num < 2) return false;
-        for (let i = 2; i <= Math.sqrt(num); i++) if (num % i === 0) return false;
-        return true;
-    };
-    const soNguyenTo = mangSo.find(so => isPrime(so)) || "👉Không có số nguyên tố";
-    document.getElementById("ketQuaSoNguyenToDauTien").textContent = `👉Số nguyên tố đầu tiên: ${soNguyenTo}`;
+    const soNguyenToDauTien = mangSo.find(so => laSoNguyenTo(so)) ?? -1;
+    document.getElementById("ketQuaSoNguyenToDauTien").textContent = `👉Số nguyên tố đầu tiên: ${soNguyenToDauTien}`;
 }
+
+function laSoNguyenTo(n) {
+    if (n < 2) return false;
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return false;
+    }
+    return true;
+}
+
 
 function demSoNguyen() {
     const demSoNguyen = mangSo.filter(so => Number.isInteger(so)).length;
